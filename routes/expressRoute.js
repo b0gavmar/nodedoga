@@ -10,9 +10,9 @@ const __dirname = path.dirname(__filename);
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.use("/greetings", (req, res, send) => {
-    res.send("Hello,  Gavlik Martin István  ");
-
+router.use("/express", (req, res, send) => {
+    res.send("Az Express egy minimalista webes keretrendszer, amely a Node.js-hez készült.");
+    
 });
 
 export default router;
