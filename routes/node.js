@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.use("/node", (req, res, send) => {
+router.use("/nodejs", (req, res, send) => {
     res.send("A Node.js egy olyan szerveroldali JavaScript futtatókörnyezet, amely a V8 JavaScript motorra épül.");
 
 });
