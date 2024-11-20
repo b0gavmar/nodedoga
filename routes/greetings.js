@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.use("/greetings", (req, res, send) => {
+router.use("/greeting", (req, res, send) => {
     res.send("Hello,  Gavlik Martin István  ");
 
 });
