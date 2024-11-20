@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node.js dolgozat</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <style>
+        .card {
+            height: 100%;
+        }
+
+        .container {
+            max-width: 700px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h1>Node.js - dolgozat</h1>
+                <p id="greeting"></p>
+            </div>
+
+            <hr />
+
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mi a Node.js?</h5>
+                        <p class="card-text" id="nodejs"></p>
+                        <a href="https://nodejs.org/docs/latest/api/" class="btn btn-primary" target="_blank">
+                            Tudj meg többet
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mi az Express?</h5>
+                        <p class="card-text" id="express"></p>
+                        <a href="https://expressjs.com/" class="btn btn-primary" target="_blank">
+                            Tudj meg többet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetchEndpointByPath("greeting");
+        fetchEndpointByPath("nodejs");
+        fetchEndpointByPath("express");
+
+        async function fetchEndpointByPath(url) {
+            const elem = document.getElementById(url);
+
+            try {
+                const response = await fetch(`/${url}`);
+                if (!response.ok) {
+                    throw new Error();
+                }
+
+                const data = await response.text();
+                elem.innerText = data;
+                elem.style.color = "green";
+            } catch {
+                elem.innerText = `Kérlek implementáld a /${url} endpointot!`;
+                elem.style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>
